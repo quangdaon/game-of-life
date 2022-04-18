@@ -5,7 +5,7 @@
   export let grid: GridModel;
 </script>
 
-<div class="grid">
+<div class="grid" style="--grid-columns: {grid.columns}">
   {#each grid.cells as cell}
     <Cell {cell} />
   {/each}
@@ -13,7 +13,10 @@
 
 <style>
   .grid {
+    width: 35vw;
     display: grid;
-    grid-template-columns: repeat(20, 1em);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: 1px;
+    margin: auto;
   }
 </style>

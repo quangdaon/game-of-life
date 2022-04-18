@@ -8,5 +8,3 @@
 <main>
   <Grid {grid} />
 </main>
-
-<style></style>
