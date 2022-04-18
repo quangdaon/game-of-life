@@ -19,7 +19,7 @@ describe('Setup', () => {
     cy.getCell(4, 5).click();
     cy.getCell(13, 8).click();
 
-    cy.get('[data-cy="clear"]').click();
+    cy.clearCells();
 
     cy.getCell(4, 5).should('not.have.class', 'active');
     cy.getCell(13, 8).should('not.have.class', 'active');

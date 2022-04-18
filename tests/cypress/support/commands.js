@@ -27,3 +27,11 @@
 Cypress.Commands.add('getCell', (x, y, ...args) => {
   return cy.get(`.cell[data-x="${x}"][data-y="${y}"]`, ...args);
 });
+
+Cypress.Commands.add('nextStep', () => {
+  cy.get(`[data-cy="step"]`).click();
+});
+
+Cypress.Commands.add('clearCells', () => {
+  cy.get('[data-cy="clear"]').click();
+});
