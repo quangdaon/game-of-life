@@ -13,10 +13,10 @@
 
 <style>
   .grid {
-    width: 35vw;
+    width: 25vw;
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: 1px;
+    gap: 3px;
     margin: auto;
   }
 </style>

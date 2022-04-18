@@ -10,7 +10,9 @@
 
 <style>
   .cell {
-    border: 1px solid black;
     aspect-ratio: 1;
+    background: var(--color-text);
+    border-radius: 2px;
+    opacity: 0.2;
   }
 </style>
