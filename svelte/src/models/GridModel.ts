@@ -52,6 +52,10 @@ export class GridModel {
     return cell;
   }
 
+  getState() {
+    return this.cells.map(e => e.active);
+  }
+
   getLiveNeighbors(cell: CellModel): number {
     let count = 0;
     for (let xOffset = -1; xOffset <= 1; xOffset++) {
