@@ -21,7 +21,7 @@
   .cell {
     aspect-ratio: 1;
     background: var(--color-text);
-    border-radius: 2px;
+    border-radius: 4px;
     opacity: 0.2;
     margin: 0;
     border: none;

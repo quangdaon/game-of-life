@@ -9,4 +9,16 @@
 body {
   background: var(--color-background);
   color: var(--color-text);
+  font-size: 18px;
+}
+
+
+.button {
+  cursor: pointer;
+  background: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  margin: 0;
+  font-size: 1em;
+  padding: 1em 2em;
 }

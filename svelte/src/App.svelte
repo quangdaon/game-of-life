@@ -8,4 +8,15 @@
 
 <main>
   <Grid {grid} />
+  <div class="actions">
+    <button class="button">Step</button>
+    <button class="button">Clear</button>
+  </div>
 </main>
+
+<style>
+  .actions {
+    text-align: center;
+    margin: 1em 0;
+  }
+</style>
