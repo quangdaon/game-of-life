@@ -10,4 +10,9 @@ export class GridModel {
       }
     }
   }
+
+  clear() {
+    for (const c of this.cells) c.active = false;
+    this.cells = [...this.cells];
+  }
 }

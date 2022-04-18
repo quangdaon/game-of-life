@@ -1,7 +1,7 @@
 import { APP_URL } from '../../config/index';
 
 describe('Layout', () => {
-  it('exists', () => {
+  before(() => {
     cy.visit(APP_URL);
   });
 
@@ -17,7 +17,13 @@ describe('Layout', () => {
 
   describe('Actions panel', () => {
     it('exists', () => cy.get('.actions').should('exist'));
-    it('contains a step button', () => cy.get('.actions').contains('Step'));
-    it('contains a clear button', () => cy.get('.actions').contains('Clear'));
+
+    it('contains a step button', () => {
+      cy.get('.actions > [data-cy="step"]').should('exist').contains('Step');
+    });
+
+    it('contains a clear button', () => {
+      cy.get('.actions > [data-cy="clear"]').should('exist').contains('Clear');
+    });
   });
 });

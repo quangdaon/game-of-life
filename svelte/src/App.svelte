@@ -2,15 +2,25 @@
   import './global.css';
   import Grid from './components/Grid.svelte';
   import { GridModel } from './models/GridModel';
+  import type { CellModel } from './models/CellModel';
 
-  const grid = new GridModel(20, 20);
+  let grid = new GridModel(20, 20);
+  const clear = () => {
+    grid.clear();
+    grid = grid;
+  };
+
+  const toggleCell = (cell: CellModel) => {
+    cell.active = !cell.active;
+    grid = grid;
+  };
 </script>
 
 <main>
-  <Grid {grid} />
+  <Grid {grid} on:toggle={(e) => toggleCell(e.detail)} />
   <div class="actions">
-    <button class="button">Step</button>
-    <button class="button">Clear</button>
+    <button class="button" data-cy="step">Step</button>
+    <button class="button" data-cy="clear" on:click={clear}>Clear</button>
   </div>
 </main>
 

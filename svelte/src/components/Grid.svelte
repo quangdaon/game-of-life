@@ -7,7 +7,7 @@
 
 <div class="grid" style="--grid-columns: {grid.columns}">
   {#each grid.cells as cell}
-    <Cell {cell} />
+    <Cell {cell} on:toggle />
   {/each}
 </div>
 

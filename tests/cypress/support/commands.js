@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('getCell', (x, y, ...args) => {
+  return cy.get(`.cell[data-x="${x}"][data-y="${y}"]`, ...args);
+});

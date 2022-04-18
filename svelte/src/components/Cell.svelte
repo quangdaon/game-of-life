@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
   import type { CellModel } from '../models/CellModel';
+	const dispatch = createEventDispatcher<{toggle: CellModel}>();
 
   export let cell: CellModel;
 
-  const toggle = () => (cell.active = !cell.active);
+  const toggle = () => dispatch('toggle', cell);
 
   $: coordinates = `${cell.x}, ${cell.y}`;
 </script>
