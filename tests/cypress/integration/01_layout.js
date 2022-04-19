@@ -1,9 +1,4 @@
-import { APP_URL } from '../../config/index';
-
 describe('Layout', () => {
-  before(() => {
-    cy.visit(APP_URL);
-  });
 
   describe('Grid', () => {
     it('exists', () => {
@@ -20,6 +15,10 @@ describe('Layout', () => {
 
     it('contains a step button', () => {
       cy.get('.actions > [data-cy="step"]').should('exist').contains('Step');
+    });
+
+    it('contains a play button', () => {
+      cy.get('.actions > [data-cy="play"]').should('exist').contains('Play');
     });
 
     it('contains a clear button', () => {

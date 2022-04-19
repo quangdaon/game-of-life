@@ -23,11 +23,16 @@
   .cell {
     aspect-ratio: 1;
     background: var(--color-text);
-    border-radius: 4px;
+    border-radius: 0;
     opacity: 0.2;
+    padding: 0;
     margin: 0;
     border: none;
     cursor: pointer;
+  }
+
+  .cell:active {
+    opacity: 0.15;
   }
 
   .cell.active {
