@@ -4,7 +4,7 @@
   import { GridModel } from './models/GridModel';
   import type { CellModel } from './models/CellModel';
 
-  let grid = new GridModel(20, 20);
+  let grid = new GridModel(30);
   let playing = false;
 
   const clear = () => {

@@ -3,7 +3,7 @@ import { CellModel } from './CellModel';
 export class GridModel {
   public cells: CellModel[] = [];
 
-  constructor(public columns: number, public rows: number) {
+  constructor(public columns: number, public rows: number = columns) {
     for (let j = 0; j < columns; j++) {
       for (let i = 0; i < rows; i++) {
         this.cells.push(new CellModel(i, j));
