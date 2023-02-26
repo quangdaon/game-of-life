@@ -1,6 +1,8 @@
 import { CellModel } from './CellModel';
+import type { Parity } from './Parity';
 
 export class GridModel {
+  public infinite = false;
   public cells: CellModel[] = [];
 
   constructor(public columns: number, public rows: number = columns) {
@@ -53,7 +55,7 @@ export class GridModel {
   }
 
   getState() {
-    return this.cells.map(e => e.active);
+    return this.cells.map((e) => e.active);
   }
 
   getLiveNeighbors(cell: CellModel): number {
@@ -62,8 +64,14 @@ export class GridModel {
       for (let yOffset = -1; yOffset <= 1; yOffset++) {
         if (xOffset === 0 && yOffset === 0) continue;
 
-        const x = cell.x + xOffset;
-        const y = cell.y + yOffset;
+        let x = cell.x + xOffset;
+        let y = cell.y + yOffset;
+
+        if (this.infinite) {
+          const wrap = (val: number, limit: number) => (val + limit) % limit;
+          x = wrap(x, this.rows);
+          y = wrap(y, this.columns);
+        }
 
         const neighbor = this.getCell(x, y);
 
