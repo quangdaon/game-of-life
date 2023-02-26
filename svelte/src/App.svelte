@@ -60,12 +60,12 @@
     <button class="button" data-cy="play" on:click={() => (playing = !playing)}>
       {playing ? 'Pause' : 'Play'}
     </button>
-    <button class="button" data-cy="step" on:click={step} disabled={playing}
-      >Step</button
-    >
-    <button class="button" data-cy="clear" on:click={clear} disabled={playing}
-      >Clear</button
-    >
+    <button class="button" data-cy="step" on:click={step} disabled={playing}>
+      Step
+    </button>
+    <button class="button" data-cy="clear" on:click={clear} disabled={playing}>
+      Clear
+    </button>
   </div>
 </main>
 
