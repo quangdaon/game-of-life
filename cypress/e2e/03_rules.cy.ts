@@ -1,5 +1,10 @@
+import { APP_URL } from '../config';
+
 describe(`Conway's Rules of Life`, () => {
-  beforeEach(() => cy.clearCells());
+  beforeEach(() => {
+    cy.visit(APP_URL);
+    cy.clearCells();
+  });
 
   describe('A live cell', () => {
     beforeEach(() => {
@@ -71,5 +76,5 @@ describe(`Conway's Rules of Life`, () => {
 
       cy.getCell(4, 5).should('have.class', 'active');
     });
-  })
+  });
 });

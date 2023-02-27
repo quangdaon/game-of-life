@@ -1,16 +1,17 @@
-import { APP_URL } from '../../config/index';
+import { APP_URL } from '../config/index';
 
 describe('Setup', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit(APP_URL);
   });
-
+  
   it('can activate specific cells', () => {
     cy.getCell(3, 7).click();
     cy.getCell(3, 7).should('have.class', 'active');
   });
 
   it('can deactivate specific cells', () => {
+    cy.getCell(3, 7).click();
     cy.getCell(3, 7).click();
     cy.getCell(3, 7).should('not.have.class', 'active');
   });

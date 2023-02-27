@@ -1,12 +1,17 @@
+import { APP_URL } from '../config';
+
 describe('Layout', () => {
+  beforeEach(() => {
+    cy.visit(APP_URL);
+  });
 
   describe('Grid', () => {
     it('exists', () => {
       cy.get('.grid').should('exist');
     });
 
-    it('contains 400 cells', () => {
-      cy.get('.grid > .cell').should('have.length', 400);
+    it('contains 900 cells', () => {
+      cy.get('.grid > .cell').should('have.length', 900);
     });
   });
 
