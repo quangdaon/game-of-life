@@ -48,7 +48,7 @@ export class GridModel {
       return null;
 
     if (cell.x !== x || cell.y !== y) {
-      throw new Error('Catastrophe disaster occurred.');
+      throw new Error('Catastrophic disaster occurred.');
     }
 
     return cell;
