@@ -40,6 +40,12 @@ export class GridModel {
     this.cells = clone;
   }
 
+  loadPreset(cells: [number, number][]) {
+    for (const c of this.cells)
+      c.active = cells.some((o) => o[0] === c.x && o[1] === c.y);
+    this.cells = [...this.cells];
+  }
+
   getCell(x: number, y: number) {
     const i = y * this.columns + x;
     const cell = this.cells[i];

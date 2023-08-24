@@ -12,7 +12,6 @@ body {
   font-size: 18px;
 }
 
-
 .button {
   cursor: pointer;
   background: var(--color-primary);
@@ -21,4 +20,8 @@ body {
   margin: 0;
   font-size: 1em;
   padding: 1em 2em;
+}
+
+button:not(:disabled):active {
+  background: var(--color-secondary);
 }

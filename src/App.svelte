@@ -3,9 +3,13 @@
   import Grid from './components/Grid.svelte';
   import { GridModel } from './models/GridModel';
   import type { CellModel } from './models/CellModel';
+  import { createPreset } from './services/presets';
+  import PresetPicker from './components/PresetPicker.svelte';
+  import type { Preset } from './models/Preset';
 
   let grid = new GridModel(30);
   let playing = false;
+  let presetting = false;
 
   const clear = () => {
     grid.clear();
@@ -21,6 +25,17 @@
     if (playing) return;
     cell.active = !cell.active;
     grid = grid;
+  };
+
+  const savePreset = () => {
+    const name = prompt('Preset Name');
+    if (name) createPreset(name, grid);
+  };
+
+  const loadPreset = (preset: Preset) => {
+    grid.loadPreset(preset.cells);
+    grid = grid;
+    presetting = false;
   };
 
   let timestampChecked = 0;
@@ -67,7 +82,32 @@
       Clear
     </button>
   </div>
+  <div class="actions actions-presets">
+    <button
+      class="button"
+      data-cy="preset:load"
+      on:click={() => (presetting = true)}
+      disabled={playing}
+    >
+      Load Preset
+    </button>
+    <button
+      class="button"
+      data-cy="preset:save"
+      on:click={savePreset}
+      disabled={playing}
+    >
+      Save Preset
+    </button>
+  </div>
 </main>
+
+{#if presetting}
+  <PresetPicker
+    on:cancel={() => (presetting = false)}
+    on:select={(evt) => loadPreset(evt.detail)}
+  />
+{/if}
 
 <style>
   .actions {
