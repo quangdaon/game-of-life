@@ -13,10 +13,16 @@
 
 <style>
   .grid {
-    width: 30vw;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     gap: 1px;
     margin: auto;
+  }
+
+  @media screen and (min-width: 600px) {
+    .grid {
+      width: 30vw;
+    }
   }
 </style>
