@@ -39,7 +39,8 @@
   };
 
   let timestampChecked = 0;
-  let framerate = 30;
+  let framerate = 10;
+  const framerates = [1, 10, 30];
 
   function animationLoop(ms: number) {
     if (playing) {
@@ -100,6 +101,13 @@
       Save Preset
     </button>
   </div>
+  <div class="settings">
+    <select name="framerate" id="framerate" bind:value={framerate}>
+      {#each framerates as fps}
+        <option value={fps}>{fps} FPS</option>
+      {/each}
+    </select>
+  </div>
 </main>
 
 {#if presetting}
@@ -110,7 +118,8 @@
 {/if}
 
 <style>
-  .actions {
+  .actions,
+  .settings {
     text-align: center;
     margin: 1em 0;
   }
